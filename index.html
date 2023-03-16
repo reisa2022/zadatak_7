@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Assignment - Animacija</title>
+	</head>
+    <style>
+        body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #050210;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		width: 0px;
+		height: 0px;
+	}
+	to {
+		width: 172.5px;
+		height: 172.5px;
+	}
+}
+
+#outer-circle {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+	animation: rotation 1s linear infinite;
+}
+
+#outer-circle span {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+}
+
+#outer-circle span:nth-child(1) {
+	filter: blur(5px);
+}
+#outer-circle span:nth-child(2) {
+	filter: blur(10px);
+}
+#outer-circle span:nth-child(3) {
+	filter: blur(25px);
+}
+#outer-circle span:nth-child(4) {
+	filter: blur(50px);
+}
+
+#outer-circle:after {
+	content: "";
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	background: hsl(253, 78%, 4%);
+	border-radius: 50%;
+}
+
+#inner-circle {
+	position: absolute;
+	border-radius: 50%;
+	background-color: white;
+	animation: scaleUp 1s linear infinite;
+	background-color: hsl(253, 78%, 8%);
+}
+
+
+    </style>
+	<body>
+		<div id="outer-circle">
+			<circle></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div id="inner-circle"></div>
+
+		
+	</body>
+</html>
